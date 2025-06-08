@@ -1,10 +1,13 @@
 import psycopg2
 from datetime import datetime
+from dotenv import load_dotenv
+import os
+load_dotenv(r"C:\Users\aswin\Desktop\completed projects\EMPLOYEE MANAGEMENT\management.env")
 conn=psycopg2.connect(
-    host="localhost",
-    database="employee_management_system",
-    user="postgres",
-    password="Aswin@2109",
+    host=os.getenv("DB_HOST"),
+    database=os.getenv("DB_NAME"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
     port="5432"
 )
 con=conn.cursor()
